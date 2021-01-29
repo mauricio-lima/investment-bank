@@ -70,23 +70,27 @@ namespace investment_analysis
 				analysis.Add(new Trade(trade));
 			}
 
-
 			//analysis.Portfolio.Add(new Trade(new { Value = 2000000d, ClientSector = "Private" }));
 			//analysis.Portfolio.Add(new Trade(new { Value = 400000d, ClientSector = "Public" }));
 			//analysis.Portfolio.Add(new Trade(new { Value = 500000d, ClientSector = "Public" }));
 			//analysis.Portfolio.Add(new Trade(new { Value = 3000000d, ClientSector = "Public" }));
 
+			Console.WriteLine();
+			Console.WriteLine("     Value        Sector     Category");
+			Console.WriteLine();
 			foreach (Trade trade in analysis.Portfolio)
 			{
 				Console.WriteLine("{0,15}   {1,-8}   {2}", trade.Value.ToString("#,##0.00"), trade.ClientSector, trade.Category);
-		
 			}
+			Console.WriteLine();
+			Console.WriteLine();
 
 			List<String> tradeCategories = analysis.categories;
 			tradeCategories.ForEach(delegate (String category)
 			{
-				Console.WriteLine(category);
+				Console.WriteLine(" - {0}", category);
 			});
+			Console.ReadKey();
 
 		}
 	}
